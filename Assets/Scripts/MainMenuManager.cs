@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,16 @@ public class MainMenuManager : MonoBehaviour
 
     private float inputDelay = 0.3f;
     private float lastInputTime;
+
+    public static MainMenuManager instance;
+
+    private void Awake() {
+        if (instance) {
+            Destroy(gameObject);
+        } else {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -35,8 +46,7 @@ public class MainMenuManager : MonoBehaviour
             currentIndex = newIndex;
         }
         if (Input.GetButtonDown("Submit")) {
-            //AudioManager.instance.Play("ui_select");
-            buttons[currentIndex].OnPressedButton();
+            ClickButton();
         }
     }
 
@@ -44,6 +54,17 @@ public class MainMenuManager : MonoBehaviour
         //AudioManager.instance.Play("ui_change");
         old.OnUnselectedButton();
         current.OnSelectedButton();
+    }
+
+    public void OnMouseChangeSelection(MenuButton current) {
+        //AudioManager.instance.Play("ui_change");
+        buttons[currentIndex].OnUnselectedButton();
+        currentIndex = Array.IndexOf(buttons, current);
+        buttons[currentIndex].OnSelectedButton();
+    }
+
+    public void onMouseConfirmSelection(MenuButton current) {
+        ClickButton();
     }
 
     public void StartNewGame() {
@@ -65,5 +86,10 @@ public class MainMenuManager : MonoBehaviour
 
     public void QuitGame() {
         Application.Quit();
+    }
+
+    private void ClickButton() {
+        // AudioManager.instance.play("ui_select");
+        buttons[currentIndex].OnPressedButton();
     }
 }

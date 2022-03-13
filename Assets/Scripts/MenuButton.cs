@@ -16,24 +16,29 @@ public class MenuButton : MonoBehaviour
     }
 
     public void OnSelectedButton() {
-        anim.ResetTrigger("Unselected");
-        anim.SetTrigger("Selected");
+        anim.SetBool("Selected", true);
         if (OnSelected != null) {
             OnSelected.Invoke();
         }
     }
 
     public void OnUnselectedButton() {
-        anim.SetTrigger("Unselected");
-        anim.ResetTrigger("Selected");
+        anim.SetBool("Selected", false);
         if (OnUnselected != null)
             OnUnselected.Invoke();
     }
 
     public void OnPressedButton() {
-        anim.ResetTrigger("Unselected");
         anim.SetTrigger("Pressed");
         if (OnPressed != null)
             OnPressed.Invoke();
+    }
+
+    public void OnPointerOver() {
+        MainMenuManager.instance.OnMouseChangeSelection(this);
+    }
+
+    public void OnPointerClick() {
+        MainMenuManager.instance.onMouseConfirmSelection(this);
     }
 }

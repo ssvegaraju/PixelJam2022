@@ -8,6 +8,8 @@ public class PlayerMovementBehavior : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private PlayerInput playerInput;
     private InputManager inputManager;
+    private Animator anim;
+    private SpriteRenderer spr;
 
     [SerializeField] float aSpeed = 50f;
     [SerializeField] float maxSpeed = 8f;
@@ -16,6 +18,8 @@ public class PlayerMovementBehavior : MonoBehaviour
     bool isDouble = false;
     bool jumpCut = false;
     [SerializeField] bool jumpReleased = true;
+
+    private int lastDirection = 1;
     // Start is called before the first frame update
 
     private void Awake()
@@ -28,8 +32,9 @@ public class PlayerMovementBehavior : MonoBehaviour
         inputManager.PlayerMovementActionMap.Enable();
         inputManager.PlayerMovementActionMap.Jump.performed += releaseJump;
         //inputManager.PlayerMovementActionMap.Movement.performed += playerMovement;
-        
 
+        anim = GetComponent<Animator>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -50,7 +55,7 @@ public class PlayerMovementBehavior : MonoBehaviour
             jumpCount--;
             jumpReleased = false;
             jumpCut = false;
-
+            anim.SetBool("Falling", true);
             Debug.Log("JUMPING!");
         }
 
@@ -63,11 +68,19 @@ public class PlayerMovementBehavior : MonoBehaviour
 
             Debug.Log("JUMP RELEASED ABORT ABORT!");
         }
-
+        int direction = (int)Mathf.Sign(moveVector.x);
+        if (direction != lastDirection) {
+            spr.flipX = !spr.flipX;
+            lastDirection = direction;
+        }
         if (((inputManager.PlayerMovementActionMap.Movement.ReadValue<Vector2>().x > 0) && (playerRigidbody.velocity.x < maxSpeed)) ||
             ((inputManager.PlayerMovementActionMap.Movement.ReadValue<Vector2>().x < 0) && (playerRigidbody.velocity.x > -maxSpeed)))
         {
             playerRigidbody.velocity = new Vector2(Mathf.Clamp(playerRigidbody.velocity.x + moveVector.x * aSpeed * Time.deltaTime, -maxSpeed, maxSpeed), playerRigidbody.velocity.y);
+            anim.SetBool("Walking", true);
+            
+        } else {
+            anim.SetBool("Walking", false);
         }
 
         //Debug.Log("Calling Fixed Movement: " + moveVector);
@@ -95,5 +108,6 @@ public class PlayerMovementBehavior : MonoBehaviour
         {
             jumpCount = 1;
         }
+        anim.SetBool("Falling", false);
     }
 }

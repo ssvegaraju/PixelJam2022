@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2489e21ed6de72c4c9423f864c2839fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aSpeed: 70
-  maxSpeed: 12
+  aSpeed: 140
+  maxSpeed: 20
   jumpCount: 2
   jumpHeight: 45
   jumpReleased: 1

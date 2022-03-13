@@ -43,11 +43,10 @@ public class PlayerMovementBehavior : MonoBehaviour
 
         if(inputManager.PlayerMovementActionMap.Movement.ReadValue<Vector2>().y > 0 && jumpCount > 0 && jumpReleased)
         {
-            Vector2 jumpVector = moveVector;
-            playerRigidbody.velocity = Vector2.ClampMagnitude(playerRigidbody.velocity, 0f);
+            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
 
 
-            playerRigidbody.AddForce(jumpVector * jumpHeight, ForceMode2D.Impulse);
+            //playerRigidbody.AddForce(jumpVector * jumpHeight, ForceMode2D.Impulse);
             jumpCount--;
             jumpReleased = false;
             jumpCut = false;
@@ -68,7 +67,7 @@ public class PlayerMovementBehavior : MonoBehaviour
         if (((inputManager.PlayerMovementActionMap.Movement.ReadValue<Vector2>().x > 0) && (playerRigidbody.velocity.x < maxSpeed)) ||
             ((inputManager.PlayerMovementActionMap.Movement.ReadValue<Vector2>().x < 0) && (playerRigidbody.velocity.x > -maxSpeed)))
         {
-            playerRigidbody.AddForce(moveVector * aSpeed, ForceMode2D.Force);
+            playerRigidbody.velocity = new Vector2(Mathf.Clamp(playerRigidbody.velocity.x + moveVector.x * aSpeed * Time.deltaTime, -maxSpeed, maxSpeed), playerRigidbody.velocity.y);
         }
 
         //Debug.Log("Calling Fixed Movement: " + moveVector);

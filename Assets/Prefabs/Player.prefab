@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2024988659642815307}
   - component: {fileID: 2024988659642815309}
   - component: {fileID: 2024988659642815308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BottomCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 2024988660650884949}
   - component: {fileID: 2024988660650884950}
   - component: {fileID: 2024988660650884951}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,6 +214,9 @@ MonoBehaviour:
   maxSpeed: 12
   jumpCount: 2
   jumpHeight: 25
+  multiJumpHeight: 30
+  bounceHeight: 30
+  multiJumps: 1
   jumpReleased: 1
 --- !u!114 &2024988660650884951
 MonoBehaviour:
@@ -291,7 +294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2024988660743114237}
   - component: {fileID: 2024988660743114238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

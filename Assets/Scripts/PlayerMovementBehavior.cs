@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovementBehavior : MonoBehaviour
+public class PlayerMovementBehavior : LivingEntity
 {
     private Rigidbody2D playerRigidbody;
     private PlayerInput playerInput;
@@ -34,8 +34,9 @@ public class PlayerMovementBehavior : MonoBehaviour
     private int lastDirection = 1;
     // Start is called before the first frame update
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
 
@@ -59,7 +60,7 @@ public class PlayerMovementBehavior : MonoBehaviour
             playerRigidbody.velocity = Vector2.ClampMagnitude(playerRigidbody.velocity, 35f);
         }
 
-        if(moveVector.y > 0 && jumpCount > 0 && jumpReleased)
+        if(moveVector.y > 0 && jumpCount > 0 && jumpReleased && !isDead)
         {
             if(firstJump){
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
@@ -115,7 +116,9 @@ public class PlayerMovementBehavior : MonoBehaviour
             anim.SetBool("Walking", false);
         }
         playerRigidbody.velocity = new Vector2(Mathf.Clamp(newXVelo, -maxSpeed, maxSpeed), playerRigidbody.velocity.y);
-
+        if(isDead){
+            playerRigidbody.velocity = Vector2.zero;
+        }
         /*
         if (((moveVector.x > 0) && (playerRigidbody.velocity.x < maxSpeed)) ||
             ((moveVector.x < 0) && (playerRigidbody.velocity.x > -maxSpeed)))
@@ -162,6 +165,20 @@ public class PlayerMovementBehavior : MonoBehaviour
         {
             isGrounded = true;
             resetJump();
+        }
+    }
+
+    public override void Die(){
+        if(!isDead){
+            isDead = true;
+            spr.enabled = false;
+            base.CallOnDeath();
+            if(LevelLoaderScript.instance != null){
+				LevelLoaderScript.instance.ReloadScene();
+			}
+            if(deathObject != null){
+                Instantiate(deathObject, transform.position, transform.rotation);
+            }
         }
     }
 }

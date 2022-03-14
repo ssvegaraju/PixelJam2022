@@ -11,12 +11,14 @@ public class PlatformPatrollerEnemy : MonoBehaviour
     private Rigidbody2D rb;
     public Transform groundDetection;
     public GameObject enemyGFX;
+    public LayerMask groundLayers;
+    public bool flipOnSeeGround = false; //If true, this enemy flips around when it sees ground. If false, it flips when it doesn't see ground
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
     }
     void Update(){
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, rayDistance);
-        if(groundInfo.collider == false){
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, rayDistance, groundLayers);
+        if(groundInfo.collider == flipOnSeeGround){
             Flip();
         }
     }

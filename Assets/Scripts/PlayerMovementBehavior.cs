@@ -55,7 +55,7 @@ public class PlayerMovementBehavior : MonoBehaviour
             jumpCount--;
             jumpReleased = false;
             jumpCut = false;
-            anim.SetBool("Falling", true);
+            anim.SetTrigger("Jumping");
             Debug.Log("JUMPING!");
         }
 
@@ -67,6 +67,7 @@ public class PlayerMovementBehavior : MonoBehaviour
             jumpCut = true;
 
             Debug.Log("JUMP RELEASED ABORT ABORT!");
+            anim.ResetTrigger("Jumping");
         }
         int direction = (int)Mathf.Sign(moveVector.x);
         if (direction != lastDirection) {
@@ -82,6 +83,7 @@ public class PlayerMovementBehavior : MonoBehaviour
         } else {
             anim.SetBool("Walking", false);
         }
+        anim.SetBool("Falling", playerRigidbody.velocity.y < 0f);
 
         //Debug.Log("Calling Fixed Movement: " + moveVector);
         //Debug.Log("Calling Fixed Movement with velocity: " + playerRigidbody.velocity);
@@ -108,6 +110,5 @@ public class PlayerMovementBehavior : MonoBehaviour
         {
             jumpCount = 1;
         }
-        anim.SetBool("Falling", false);
     }
 }

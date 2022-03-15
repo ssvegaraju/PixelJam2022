@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2024988659642815307}
   - component: {fileID: 2024988659642815309}
   - component: {fileID: 2024988659642815308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BottomCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 2024988660650884949}
   - component: {fileID: 2024988660650884950}
   - component: {fileID: 2024988660650884951}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,11 +210,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2489e21ed6de72c4c9423f864c2839fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aSpeed: 140
+  groundAccel: 50
+  groundDecel: 50
+  airAccel: 40
+  airDecel: 40
   maxSpeed: 12
-  jumpCount: 2
   jumpHeight: 25
+  multiJumpHeight: 30
+  bounceHeight: 30
+  multiJumps: 1
   jumpReleased: 1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4096
+  boxCol: {fileID: 2024988659642815309}
 --- !u!114 &2024988660650884951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2024988660743114237}
   - component: {fileID: 2024988660743114238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

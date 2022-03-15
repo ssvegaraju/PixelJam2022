@@ -65,6 +65,9 @@ TextureImporter:
   - first:
       213: 1287039928282918331
     second: RoundChicken-Sheet_20
+  - first:
+      213: 2994323386005914094
+    second: RoundChicken-Sheet_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -158,9 +161,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,9 +182,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 23
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,9 +203,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 46
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,9 +224,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 69
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,9 +245,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 92
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,9 +266,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 115
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,9 +287,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 138
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,9 +308,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 161
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,9 +329,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 184
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,9 +350,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 207
-        y: 48
+        y: 96
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -367,10 +370,10 @@ TextureImporter:
       name: RoundChicken-Sheet_10
       rect:
         serializedVersion: 2
-        x: 230
-        y: 48
+        x: 0
+        y: 64
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,10 +391,10 @@ TextureImporter:
       name: RoundChicken-Sheet_11
       rect:
         serializedVersion: 2
-        x: 253
-        y: 48
+        x: 23
+        y: 64
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,10 +412,10 @@ TextureImporter:
       name: RoundChicken-Sheet_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 24
+        x: 46
+        y: 64
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -430,10 +433,10 @@ TextureImporter:
       name: RoundChicken-Sheet_13
       rect:
         serializedVersion: 2
-        x: 23
-        y: 24
+        x: 69
+        y: 64
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -451,10 +454,10 @@ TextureImporter:
       name: RoundChicken-Sheet_14
       rect:
         serializedVersion: 2
-        x: 46
-        y: 24
+        x: 0
+        y: 32
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -472,10 +475,10 @@ TextureImporter:
       name: RoundChicken-Sheet_15
       rect:
         serializedVersion: 2
-        x: 69
-        y: 24
+        x: 23
+        y: 32
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -493,10 +496,10 @@ TextureImporter:
       name: RoundChicken-Sheet_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 46
+        y: 32
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -514,10 +517,10 @@ TextureImporter:
       name: RoundChicken-Sheet_17
       rect:
         serializedVersion: 2
-        x: 23
-        y: 0
+        x: 69
+        y: 32
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -535,10 +538,10 @@ TextureImporter:
       name: RoundChicken-Sheet_18
       rect:
         serializedVersion: 2
-        x: 46
+        x: 0
         y: 0
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -556,10 +559,10 @@ TextureImporter:
       name: RoundChicken-Sheet_19
       rect:
         serializedVersion: 2
-        x: 69
+        x: 23
         y: 0
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -577,10 +580,10 @@ TextureImporter:
       name: RoundChicken-Sheet_20
       rect:
         serializedVersion: 2
-        x: 92
+        x: 46
         y: 0
         width: 23
-        height: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -590,6 +593,27 @@ TextureImporter:
       bones: []
       spriteID: bbd2c09eefb7cd110800000000000000
       internalID: 1287039928282918331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundChicken-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee107854149fd8920800000000000000
+      internalID: 2994323386005914094
       vertices: []
       indices: 
       edges: []

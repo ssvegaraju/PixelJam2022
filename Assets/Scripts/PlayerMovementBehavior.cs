@@ -79,6 +79,7 @@ public class PlayerMovementBehavior : LivingEntity
             //playerRigidbody.AddForce(jumpVector * jumpHeight, ForceMode2D.Impulse);
             jumpReleased = false;
             anim.SetBool("Falling", true);
+            anim.SetTrigger("Jumping");
             Debug.Log("JUMPING!");
         }
 
@@ -90,6 +91,7 @@ public class PlayerMovementBehavior : LivingEntity
             jumpCut = true;
 
             Debug.Log("JUMP RELEASED ABORT ABORT!");
+            anim.ResetTrigger("Jumping");
         }
         int direction = (int)Math.Sign(moveVector.x);
         if (direction != lastDirection) {
@@ -133,7 +135,7 @@ public class PlayerMovementBehavior : LivingEntity
         } else {
             anim.SetBool("Walking", false);
         } */
-
+        anim.SetBool("Falling", playerRigidbody.velocity.y < 0f);
         //Debug.Log("Calling Fixed Movement: " + moveVector);
         //Debug.Log("Calling Fixed Movement with velocity: " + playerRigidbody.velocity);
     }

@@ -9,6 +9,7 @@ public class LevelLoaderScript : MonoBehaviour
     bool loadingLevel = false;
     public float sceneTransitionTime = 1f;
     public Animator animator;
+    int currentCheckpoint = 0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -50,5 +51,12 @@ public class LevelLoaderScript : MonoBehaviour
         loadingLevel = false;
         animator.ResetTrigger("Scene End");
         animator.SetTrigger("Scene Start");
+    }
+
+    public void SetCurrentCheckpoint(int newCheckpointIndex){
+        if(newCheckpointIndex > currentCheckpoint){
+            currentCheckpoint = newCheckpointIndex;
+        }
+        
     }
 }

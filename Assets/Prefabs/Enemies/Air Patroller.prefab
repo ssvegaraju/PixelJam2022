@@ -54,7 +54,7 @@ MonoBehaviour:
   enemyGFX: {fileID: 7703359521453173456}
   groundLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4097
   flipOnSeeGround: 1
 --- !u!50 &7703359521383083569
 Rigidbody2D:
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 7703359521640542522}
   m_Layer: 11
   m_Name: EnemyHeadCollider
-  m_TagString: Untagged
+  m_TagString: HeadHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

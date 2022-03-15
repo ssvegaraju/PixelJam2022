@@ -27,6 +27,10 @@ public class PlayerMovementBehavior : LivingEntity
     [SerializeField] bool jumpReleased = true;
     bool touchingGround = false;
 
+    bool isInvincible = false;
+    float endInvincibilityTime;
+    public float invincibilityTime;
+
     public LayerMask whatIsGround;
     public BoxCollider2D boxCol;
     private bool isGrounded = false;
@@ -168,6 +172,14 @@ public class PlayerMovementBehavior : LivingEntity
         }
     }
 
+    public override void TakeDamage(float damage)
+    {
+        if(endInvincibilityTime < Time.time){
+            base.TakeDamage(damage);
+            endInvincibilityTime = Time.time + invincibilityTime;
+        }
+    }
+
     public override void Die(){
         if(!isDead){
             isDead = true;
@@ -179,6 +191,12 @@ public class PlayerMovementBehavior : LivingEntity
             if(deathObject != null){
                 Instantiate(deathObject, transform.position, transform.rotation);
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.tag == "Hazard"){
+            TakeDamage(1);
         }
     }
 }

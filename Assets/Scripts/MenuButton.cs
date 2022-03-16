@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
 public class MenuButton : MonoBehaviour
@@ -14,7 +15,7 @@ public class MenuButton : MonoBehaviour
     void Awake() {
         anim = GetComponent<Animator>();
     }
-
+    
     public void OnSelectedButton() {
         anim.SetBool("Selected", true);
         if (OnSelected != null) {
@@ -32,6 +33,18 @@ public class MenuButton : MonoBehaviour
         anim.SetTrigger("Pressed");
         if (OnPressed != null)
             OnPressed.Invoke();
+    }
+
+    public void newGame()
+    {
+        AudioManager.instance.Stop("MainMenu");
+        AudioManager.instance.Play("Theme");
+        SceneManager.LoadScene("Level 0");
+    }
+
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
     }
 
     public void OnPointerOver() {

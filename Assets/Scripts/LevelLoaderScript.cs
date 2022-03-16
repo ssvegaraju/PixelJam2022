@@ -38,6 +38,19 @@ public class LevelLoaderScript : MonoBehaviour
     public void LoadNextScene(){
 
         if(!loadingLevel){
+
+            if (SceneManager.GetActiveScene().buildIndex + 1 == 1)
+            {
+                AudioManager.instance.Stop("MainMenu");
+                AudioManager.instance.Play("Theme");
+            }
+
+            if (SceneManager.GetActiveScene().buildIndex + 1 == 3)
+            {
+                AudioManager.instance.Stop("Theme");
+                AudioManager.instance.Play("ThemeEnd");
+            }
+
             StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
         }
     }

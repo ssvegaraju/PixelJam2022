@@ -67,6 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4285712602131662630}
   - component: {fileID: 4285712602131662631}
+  - component: {fileID: 727892269}
   m_Layer: 0
   m_Name: EnemyGfx
   m_TagString: Untagged
@@ -128,7 +129,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: -7618974851164350328, guid: aabfb23ca4301fc4a9a7a22ee9a2e4cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,6 +140,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &727892269
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285712602131662629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb0002af76cce1d4791e1180bfbca247, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4285712603096108144
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +228,7 @@ GameObject:
   - component: {fileID: 4285712603438382751}
   - component: {fileID: 4285712603438382736}
   - component: {fileID: 4285712603438382749}
+  - component: {fileID: 372087034}
   m_Layer: 10
   m_Name: Patrol Enemy
   m_TagString: Untagged
@@ -244,12 +265,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd2d891484fdbe4690379db4c87064f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  waitTime: 1
+  waitTime: 0.5
 --- !u!61 &4285712603438382736
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,7 +304,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4285712603438382748}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -297,3 +317,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &372087034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285712603438382748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f60512bb6825b34391148d3b20cff72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  deathObject: {fileID: 0}
+  damage: 1

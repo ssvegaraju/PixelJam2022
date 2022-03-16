@@ -80,6 +80,8 @@ public class PlayerMovementBehavior : LivingEntity
             jumpReleased = false;
             anim.SetBool("Falling", true);
             Debug.Log("JUMPING!");
+            AudioManager.instance.Play("Jump");
+            anim.SetTrigger("Jumping");
         }
 
         if(jumpReleased && playerRigidbody.velocity.y > 0 && !jumpCut)
@@ -108,7 +110,7 @@ public class PlayerMovementBehavior : LivingEntity
             anim.SetBool("Walking", true);
         }
         else{
-            if(Math.Abs(playerRigidbody.velocity.x) < 0.2){
+            if(Math.Abs(playerRigidbody.velocity.x) < 0.5){
                 newXVelo = 0;
             }
             else if(isGrounded){
@@ -120,7 +122,7 @@ public class PlayerMovementBehavior : LivingEntity
             anim.SetBool("Walking", false);
         }
         playerRigidbody.velocity = new Vector2(Mathf.Clamp(newXVelo, -maxSpeed, maxSpeed), playerRigidbody.velocity.y);
-        if(isDead){
+        if (isDead){
             playerRigidbody.velocity = Vector2.zero;
         }
         /*
@@ -136,6 +138,7 @@ public class PlayerMovementBehavior : LivingEntity
 
         //Debug.Log("Calling Fixed Movement: " + moveVector);
         //Debug.Log("Calling Fixed Movement with velocity: " + playerRigidbody.velocity);
+        anim.SetBool("Falling", playerRigidbody.velocity.y < 0f);
     }
 
     public void releaseJump(InputAction.CallbackContext context)
@@ -160,6 +163,7 @@ public class PlayerMovementBehavior : LivingEntity
     public void Bounce(){
         playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, bounceHeight);
         jumpCut = true;
+        AudioManager.instance.Play("Jump");
         jumpCount = multiJumps;
     }
 
@@ -196,7 +200,7 @@ public class PlayerMovementBehavior : LivingEntity
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Hazard"){
-            TakeDamage(1);
+            TakeDamage(maxHealth);
         }
     }
 }

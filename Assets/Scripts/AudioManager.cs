@@ -35,6 +35,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Play("MainMenu");
+    }
+
     public void Play(string name, bool fadeIn = false) {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null) {

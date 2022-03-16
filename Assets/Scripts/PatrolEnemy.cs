@@ -11,6 +11,7 @@ public class PatrolEnemy : MonoBehaviour
     private int currentPointIndex = 0;
     bool isMoving = true;
     Vector2 velocity = Vector2.zero;
+
     private void FixedUpdate(){
         if(isMoving){
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.fixedDeltaTime);

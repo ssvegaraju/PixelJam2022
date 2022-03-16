@@ -16,6 +16,7 @@ public class LivingEntity : MonoBehaviour, IDamagable
     public virtual void TakeDamage(float damage){
         health -= damage;
         if(health <= 0 && !isDead){
+
             Die();
         }
         
@@ -31,6 +32,7 @@ public class LivingEntity : MonoBehaviour, IDamagable
         if(OnDeath != null){
             OnDeath();
         }
+        AudioManager.instance.Play("Death");
         Destroy(gameObject);
     }
 
